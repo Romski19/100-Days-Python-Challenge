@@ -12,25 +12,20 @@ Pizza_Price = 0
 
 if size == "S":
   Pizza_Price += 15
-  if add_pepperoni == "Y":
-    Pizza_Price += 2
-
 elif size == "M":
   Pizza_Price += 20
-  if add_pepperoni == "Y":
-    Pizza_Price += 3
 else:
   Pizza_Price += 25
-  if add_pepperoni == "Y":
-    Pizza_Price += 3
+
+
+if add_pepperoni == "Y":
+    if size == "S"
+      Pizza_Price += 2
+    else:
+      Pizza_Price += 3
 
 
 if extra_cheese == "Y":
   Pizza_Price += 1
 
 print(f"Your final bill is: ${Pizza_Price}")
-
-
-
-
-
