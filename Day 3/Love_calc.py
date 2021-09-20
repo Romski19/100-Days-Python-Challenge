@@ -34,4 +34,3 @@ elif result >= 40 and result <= 50:
   print(f"Your score is {result}. you are alright together.")
 else:
   print(f"Your score is {result}.")
-
