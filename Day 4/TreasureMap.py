@@ -9,11 +9,8 @@ position = input("Where do you want to put the treasure? ")
 
 #Write your code below this row 👇
 
-listed_pos = list(position)
-
-
-hor = int(listed_pos[0]) - 1
-ver = int(listed_pos[1]) - 1
+hor = int(postion[0]) - 1
+ver = int(position[1]) - 1
 
 if hor <= -1 or hor >= 3:
   print("wrong number")
