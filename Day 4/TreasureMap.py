@@ -11,11 +11,17 @@ position = input("Where do you want to put the treasure? ")
 
 listed_pos = list(position)
 
+
 hor = int(listed_pos[0]) - 1
 ver = int(listed_pos[1]) - 1
-map[hor][ver] = "X"
+
+if hor <= -1 or hor >= 3:
+  print("wrong number")
+elif ver <= -1 or ver >= 3:
+  print("wrong number")
+else:
+  map[hor][ver] = "X"
 
 #Write your code above this row 👆
 
-# 🚨 Don't change the code below 👇
-print(f"{row1}\n{row2}\n{row3}")
+  print(f"{row1}\n{row2}\n{row3}")
