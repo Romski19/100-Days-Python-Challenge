@@ -30,8 +30,6 @@ game_image = [rock,paper,scissors]
 chosen = int(input("What do you choose? 0 for Rock, 1 for Paper or 2 for Scissors: "))
 versus_comp = random.randint(0,2)
 
-user_choice = game_image[chosen]
-comp_choice = game_image[versus_comp]
 
 if chosen >= 3 or chosen < 0:
   print("Invalid Tanga!")
