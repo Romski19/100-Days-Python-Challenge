@@ -30,20 +30,27 @@ game_image = [rock,paper,scissors]
 chosen = int(input("What do you choose? 0 for Rock, 1 for Paper or 2 for Scissors: "))
 versus_comp = random.randint(0,2)
 
+
 if chosen >= 3 or chosen < 0:
   print("Invalid Tanga!")
-elif chosen == versus_comp:
-  print("It's a draw!")
-elif chosen == 0 and versus_comp == 2:
-  print(f"You choose:!\n {game_image[chosen]} \n Computer choose: \n {game_image[versus_comp]} \n You win!")
-elif versus_comp == 0 and chosen == 2:
-  print(f"You choose:!\n {game_image[chosen]} \n Computer choose: \n {game_image[versus_comp]} \n You lose!")
-elif chosen > versus_comp:
-  print(f"You choose:!\n {game_image[chosen]} \n Computer choose: \n {game_image[versus_comp]} \n You win!")
-elif versus_comp > chosen:
-  print(f"You choose:!\n {game_image[chosen]} \n Computer choose: \n {game_image[versus_comp]} \n You lose!")
 else:
-  print(f"You choose:!\n {game_image[chosen]} \n Computer choose: \n {game_image[versus_comp]} \n It's a draw!")
+
+  print(game_image[chosen])
+  versus_comp = random.randint(0,2)
+  print(f"Computer choose: \n {game_image[versus_comp]}")
+
+  if chosen == versus_comp:
+    print("It's a draw!")
+  elif chosen == 0 and versus_comp == 2:
+    print("You win!")
+  elif versus_comp == 0 and chosen == 2:
+    print("You lose!")
+  elif chosen > versus_comp:
+    print("You win!")
+  elif versus_comp > chosen:
+    print("You lose!")
+  else:
+    print("It's a draw!")
 
 
 # if chosen == 0:
