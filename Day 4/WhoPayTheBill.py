@@ -7,7 +7,7 @@ names = names_string.split(", ")
 #Write your code below this line 👇
 
 number_of_elements = len(names)
-rand_num = random.randint(0, number_of_elements)
+rand_num = random.randint(0, number_of_elements - 1)
 
 paidby = names[rand_num]
 
