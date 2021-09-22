@@ -7,6 +7,6 @@ for n in range(0, len(student_heights)):
 #without using sum() and len()
 total_height = 0
 for x in student_heights:
-  total_height = total_height + x 
+  total_height += x 
 average_height = round(total_height /(n + 1))
 print(average_height)
