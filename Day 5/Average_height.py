@@ -10,5 +10,3 @@ for x in student_heights:
   total_height = total_height + x 
 average_height = round(total_height /(n + 1))
 print(average_height)
-
-
