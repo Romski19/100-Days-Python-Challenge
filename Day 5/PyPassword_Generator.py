@@ -28,7 +28,7 @@ for char in range(1 , nr_numbers + 1):
 
 password_choice = ''.join(random.sample(password, len(password)))
 
-print(str(password_choice))
+print(f"Your password is: {password_choice} ")
 
 
 
