@@ -16,9 +16,5 @@ def turn_robo():
     move()
     turn_left()
 
-turn_robo()    
-turn_robo()    
-turn_robo()    
-turn_robo()    
-turn_robo()    
-turn_robo()  
+for step in range(6):
+    turn_robo() 
