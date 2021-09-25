@@ -10,11 +10,12 @@ word_list = ["aardvark", "baboon", "camel"]
 #TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 randomword = random.choice(word_list)
 
-letter = input("Select a letter: ")
+chosen = input("Select a letter: ").lower()
 
-if letter in randomword:
-  print("Yes")
-  print(randomword)
-else:
-  print("No")
-  print(randomword)
+for letter in randomword:
+  if letter == chosen:
+    print("Yes")
+    print(letter)
+  else:
+    print("No")
+    print(letter)
