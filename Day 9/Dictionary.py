@@ -5,20 +5,20 @@ programming_dictionary = {
 }
 
 programming_dictionary["Loop"] = "The action of doing something over and over again."
-# print(programming_dictionary)
+print(programming_dictionary)
 
 # creating empty dictionary
 empty_dictionary = {}
 
 # wipe an existing dictionary
-# programming_dictionary = {}
-# print(programming_dictionary)
+programming_dictionary = {}
+print(programming_dictionary)
+
 
 #edit an item in the dictionary
 programming_dictionary["Bug"] = "Hello Romeo"
-# print(programming_dictionary)
 
-
+#loop through dictionary
 
 for key in programming_dictionary:
   print(key)
