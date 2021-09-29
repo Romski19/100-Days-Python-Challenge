@@ -44,7 +44,7 @@ bids = {}
 bidding_done = False
 while not bidding_done:
   name = input("Input name:")
-  price = input("Input bid:")
+  price = int(input("Input bid:"))
   bids[name] = price
   to_continue = input("Is there any other bidders?Y/N: ")
 
