@@ -27,4 +27,29 @@ while no_other_user:
   else:
     clear()
 
-    
+
+#Angela yu's solution:
+
+
+def find_highest_bidder(bidding_record):
+  highest_bid = 
+  for bidder in bidding_record:
+    bid_amount = bidding_record[bidder]
+    if bid_amount > highest_bid:
+      highest_bid = bid_amount  
+      winner = bidder
+  print(f"The winner is {winner} with the highest bid amount of {highest_bid}")
+
+bids = {}
+bidding_done = False
+while not bidding_done:
+  name = input("Input name:")
+  price = input("Input bid:")
+  bids[name] = price
+  to_continue = input("Is there any other bidders?Y/N: ")
+
+  if to_continue == "no":
+    bidding_done = True
+    find_highest_bidder(bidding_record=bids)
+  else:
+    clear()
