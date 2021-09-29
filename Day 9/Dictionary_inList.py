@@ -38,7 +38,6 @@ new_city = travel_log[2]["cities"]
 print(f"You've visited {new_country} {new_visits} times")
 print(f"You've been to {new_city[0]} and {new_city[1]}.")
 
-#Angela'solution
 
 
 
