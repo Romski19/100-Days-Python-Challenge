@@ -8,7 +8,7 @@ no_other_user = True
 while no_other_user:
  
   name = input("Please provide your name: ").lower()
-  bid_price = int(input("How much is your bid price?: "))
+  bid_price = int(input("How much is your bid price?:$ "))
   new_dict_bid = {}
   new_dict_bid["name"] = name
   new_dict_bid["price"] = bid_price
@@ -22,7 +22,7 @@ while no_other_user:
       if dict_names["price"] > max_num:
         max_num = dict_names["price"]
         max_name = dict_names["name"]
-    print(f"The winner of the bid is: {max_name} \n With bidding price: {max_num}")
+    print(f"The winner of the bid is: {max_name} \n With bidding price: $ {max_num}")
 
   else:
     clear()
