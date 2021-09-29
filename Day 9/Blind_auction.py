@@ -50,6 +50,6 @@ while not bidding_done:
 
   if to_continue == "no":
     bidding_done = True
-    find_highest_bidder(bidding_record=bids)
+    find_highest_bidder(bids)
   else:
     clear()
