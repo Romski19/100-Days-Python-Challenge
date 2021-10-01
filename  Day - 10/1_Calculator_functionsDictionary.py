@@ -22,6 +22,8 @@ operations = {
     "/":divide
   }
 
+#recursive function
+
 def calculations():
   print(logo)
   num1 = int(input("What's the first number: "))
