@@ -30,8 +30,8 @@ def user_choice_compare(a_data,b_data):
     return user_choice, comp_choice
     
 def game():
-  a_random = random.randint(1,50)
-  b_random = random.randint(1,50)
+  a_random = random.randint(0,49)
+  b_random = random.randint(0,49)
   this_a = data[a_random]
   this_b = data[b_random]
   until_not = 0
