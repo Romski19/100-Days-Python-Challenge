@@ -56,6 +56,3 @@ def game():
       print(f"current score: {user_score}")
 print(logo)
 game()
-
-
-
