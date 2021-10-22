@@ -112,6 +112,7 @@ random.seed()
 bugoy_nga_bao.penup()
 bugoy_nga_bao.hideturtle()
 bugoy_nga_bao.speed("fastest")
+
 bugoy_nga_bao.setheading(225)
 bugoy_nga_bao.forward(300)
 bugoy_nga_bao.setheading(0)
@@ -127,10 +128,6 @@ for dot_count in range(1, num_of_dots):
         bugoy_nga_bao.setheading(180)
         bugoy_nga_bao.forward(500)
         bugoy_nga_bao.setheading(0)
-
-
-
-
 
 
 
