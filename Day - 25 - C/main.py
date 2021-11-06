@@ -24,7 +24,6 @@ while len(guessed_state) < 50:
                 data_dict = {
                     "Not Guessed States": missing_state
                 }
-
                 data = pandas.DataFrame(data_dict)
                 data.to_csv("states_to_learn.csv")
 
