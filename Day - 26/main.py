@@ -1,9 +1,11 @@
+with open("file1.txt") as f1:
+    list1 = f1.read().splitlines()
+with open("file2.txt") as f2:
+    list2 = f2.read().splitlines()
 
-numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-# Square numbers
-# squared_numbers = [ n * n for n in numbers]
-# print(squared_numbers)
+result = [x for x in list1 if x in list2]
 
-# even numbers
-# even_numbers = [n for n in numbers if n % 2 == 0]
-# print(even_numbers)
+# Write your code above 👆
+print(result)
+
+
