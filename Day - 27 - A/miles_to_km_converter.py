@@ -9,7 +9,7 @@ window.config(padx=60, pady=20)
 def conversion():
     miles = input_miles.get()
     km = 1.609344 * float(miles)
-    label_result.config(text=km)
+    label_result.config(text=round(km))
 
 
 input_miles = Entry(width=15)
@@ -24,7 +24,7 @@ label_mile.config(padx=10, pady=10)
 label_equal_to = Label(text="equal to", font=("Arial", 10, "bold"))
 label_equal_to.grid(column=0, row=1)
 
-label_result = Label(text="result", font=("Arial", 10, "bold"))
+label_result = Label(text="0", font=("Arial", 10, "bold"))
 label_result.grid(column=1, row=1)
 label_result.config(padx=20, pady=0)
 
