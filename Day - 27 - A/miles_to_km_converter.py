@@ -15,7 +15,7 @@ def conversion():
 input_miles = Entry(width=15)
 input_miles.grid(column=1, row=0)
 
-label_mile = Label(text="Miles", font=("Arial", 10, "bold"))
+label_mile = Label(text="Miles", font=("Arial", 10, "bold")) 
 label_mile.grid(column=2, row=0)
 label_mile.config(padx=10, pady=10)
 
