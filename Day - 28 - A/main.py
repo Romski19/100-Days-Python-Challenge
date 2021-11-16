@@ -39,11 +39,10 @@ def start_timer():
         title_label.config(text="LONG BREAK INDEED!", fg=RED)
     elif reps % 2 == 0:
         count_down(short_break_sec)
-        title_label.config(text="HAVE A SHORT BREAK!",fg=PINK)
+        title_label.config(text="HAVE A SHORT BREAK!", fg=PINK)
     else:
         count_down(work_sec)
         title_label.config(text="WORK TIME!")
-
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
@@ -62,10 +61,11 @@ def count_down(count):
     else:
         start_timer()
         marks = ""
-        work_sessions = math.floor(reps/2)
+        work_sessions = math.floor(reps / 2)
         for _ in range(work_sessions):
             marks += "✔"
         check_label.config(text=marks)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -85,7 +85,7 @@ canvas.grid(column=1, row=1)
 btn_start = Button(text="Start", highlightthickness=0, command=start_timer)
 btn_start.grid(column=0, row=2)
 
-check_label = Label( fg=GREEN, bg=YELLOW)
+check_label = Label(fg=GREEN, bg=YELLOW)
 check_label.grid(column=1, row=3)
 
 btn_reset = Button(text="Reset", highlightthickness=0, command=reset_timer)
