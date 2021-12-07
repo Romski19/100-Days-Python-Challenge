@@ -17,5 +17,5 @@ for post in facebook_posts:
 
 print(total_likes)
 
-# explaination: some of the post in the dict does not have a Like -
+# explanation: some of the post in the dict does not have a Like -
 # Key so to pass it we use try except with pass for the counter of "like" key
