@@ -47,7 +47,6 @@ for x in range(len(df.name)):
     else:
         pass
 
-
 # Angela Short Code solution
 
 # today = dt.datetime.now()
