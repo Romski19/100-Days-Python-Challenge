@@ -46,3 +46,16 @@ for x in range(len(df.name)):
 
     else:
         pass
+
+
+# Angela Short Code solution
+
+# today = dt.datetime.now()
+# today_tuple = (today.month, today.day)
+#
+#
+# data = pd.read_csv("birthdays.csv")
+# birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
+#
+# if today_tuple in birthday_dict:
+#
