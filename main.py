@@ -50,15 +50,46 @@
 # print(f"month of December: ", (sum(d)))
 
 
-from calendar import monthrange, month_name
+# from calendar import monthrange, month_name
+#
+# month_name = list(month_name[1:])
+# days = [x for x in range(1, 366)]
+#
+# month_days = []
+# for month in month_name:
+#     month_days.append(monthrange(2021, list(month_name).index(month) + 1)[1])
+#
+# print("Total Saved:", sum([sum(days[sum(month_days[:i]):sum(month_days[:i+1])]) for i, j in enumerate(month_days)]))
+# print([sum(days[sum(month_days[:i]):sum(month_days[:i+1])]) for i, j in enumerate(month_days)])
 
-month_name = list(month_name[1:])
-days = [x for x in range(1, 366)]
+# from calendar import monthrange
+#
+# days_in_month = [monthrange(2021, m)[1] for m in range(1, 13)]
+# monthly_totals = []
+# daynum = 0
+# for month in range(1, 13):
+#     month_total = 0
+#     for day in range(1, days_in_month[month - 1] + 1):
+#         daynum += 1
+#         month_total += daynum
+#     monthly_totals.append(month_total)
+#
+# print(monthly_totals)
+# print(sum(monthly_totals))
 
-month_days = []
-for month in month_name:
-    month_days.append(monthrange(2021, list(month_name).index(month) + 1)[1])
 
-print("Total Saved:", sum([sum(days[sum(month_days[:i]):sum(month_days[:i+1])]) for i, j in enumerate(month_days)]))
-print([sum(days[sum(month_days[:i]):sum(month_days[:i+1])]) for i, j in enumerate(month_days)])
+from calendar import monthrange, isleap
+from itertools import accumulate
 
+
+def save(y):
+    d_in_m = [0] + [monthrange(y, m)[1] for m in range(1, 13)]
+    cum_d = list(accumulate(d_in_m))
+    daily = range(1, 367 if isleap(y) else 366)
+    return [sum(daily[cum_d[m]: cum_d[m + 1]]) for m in range(12)]
+
+
+year = 2021
+res = save(year)
+print(res)
+print(sum(res))
