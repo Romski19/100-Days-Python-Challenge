@@ -1,10 +1,10 @@
 import requests
 import smtplib
 from datetime import datetime
-from time import time, sleep
+import time
 
 while True:
-    sleep(60 - time() % 60)
+    time.sleep(60)
 
     MY_LAT = 13.756331
     MY_LONG = 100.501762
