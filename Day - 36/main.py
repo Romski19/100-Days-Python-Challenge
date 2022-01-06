@@ -32,6 +32,8 @@ stock_dict = response.json()["Time Series (Daily)"]
 two_days_stock = dict(itertools.islice(stock_dict.items(), 2))
 yesterday = float(list(two_days_stock.items())[0][1]["4. close"])
 a_day_before = float(list(two_days_stock.items())[1][1]["4. close"])
+
+# percentage calculator (increase/decrease)
 stock_percentage = int(((yesterday - a_day_before) / a_day_before) * 100)
 
 ## STEP 2: Use https://newsapi.org
