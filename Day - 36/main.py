@@ -4,7 +4,7 @@ import os
 from twilio.rest import Client
 
 account_sid = "AC0336a39ea9bfaa3021ee23039d77cf50"
-auth_token = "92d4b50fb4686365ba80abae109002ca"
+auth_token = "7fea9e33da8a4ce86181711592992b85"
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
