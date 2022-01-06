@@ -1,5 +1,10 @@
 import requests
 import itertools
+import os
+from twilio.rest import Client
+
+account_sid = "AC0336a39ea9bfaa3021ee23039d77cf50"
+auth_token = "92d4b50fb4686365ba80abae109002ca"
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -27,8 +32,7 @@ stock_dict = response.json()["Time Series (Daily)"]
 two_days_stock = dict(itertools.islice(stock_dict.items(), 2))
 yesterday = float(list(two_days_stock.items())[0][1]["4. close"])
 a_day_before = float(list(two_days_stock.items())[1][1]["4. close"])
-stock_percentage = int(((yesterday-a_day_before)/a_day_before) * 100)
-
+stock_percentage = int(((yesterday - a_day_before) / a_day_before) * 100)
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
@@ -38,26 +42,38 @@ r.raise_for_status()
 news_headline = r.json()["articles"][0]["title"]
 news_brief = r.json()["articles"][0]["description"]
 
-if stock_percentage >= 1:
-    print(f"TSLA: ▲{stock_percentage} %")
-    print(f"Headline: {news_headline}")
-    print(f"Brief: {news_brief}")
-else:
-    print(f"TSLA: ▼{abs(stock_percentage)}%")
-    print(f"Headline: {news_headline}")
-    print(f"Brief: {news_brief}")
-
-
-
-
-
-
-
 ## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
+# Send a seperate message with the percentage change and each article's title and description to your phone number.
 
+client = Client(account_sid, auth_token)
 
-#Optional: Format the SMS message like this: 
+if stock_percentage >= 1:
+    message = client.messages \
+        .create(
+        body=f"TSLA: ▲{abs(stock_percentage)}% \n\n "
+             f"Headline: {news_headline} \n"
+             f"Brief: {news_brief}",
+        from_='+14439513240',
+        to='+66617164061',
+    )
+    print(message.status)
+else:
+    message = client.messages \
+        .create(
+        body=f"TSLA: ▼{abs(stock_percentage)}% \n\n "
+             f"Headline: {news_headline} \n"
+             f"Brief: {news_brief}",
+        from_='+14439513240',
+        to='+66800785607',
+    )
+
+    print(message.status)
+
+    # print(f"TSLA: ▼{abs(stock_percentage)}%")
+    # print(f"Headline: {news_headline}")
+    # print(f"Brief: {news_brief}")
+
+# Optional: Format the SMS message like this:
 """
 TSLA: 🔺2%
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
@@ -67,4 +83,3 @@ or
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
 Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
 """
-
