@@ -52,7 +52,7 @@ client = Client(account_sid, auth_token)
 if stock_percentage >= 1:
     message = client.messages \
         .create(
-        body=f"TSLA: ▲{abs(stock_percentage)}% \n\n "
+        body=f"TSLA: ▲{stock_percentage}% \n\n "
              f"Headline: {news_headline} \n"
              f"Brief: {news_brief}",
         from_='+14439513240',
@@ -62,7 +62,7 @@ if stock_percentage >= 1:
 else:
     message = client.messages \
         .create(
-        body=f"TSLA: ▼{abs(stock_percentage)}% \n\n "
+        body=f"TSLA: ▼{stock_percentage}% \n\n "
              f"Headline: {news_headline} \n"
              f"Brief: {news_brief}",
         from_='+14439513240',
