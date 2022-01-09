@@ -81,15 +81,29 @@
 from calendar import monthrange, isleap
 from itertools import accumulate
 
+# def save(y):
+#     d_in_m = [0] + [monthrange(y, m)[1] for m in range(1, 13)]
+#     cum_d = list(accumulate(d_in_m))
+#     daily = range(1, 367 if isleap(y) else 366)
+#     return [sum(daily[cum_d[m]: cum_d[m + 1]]) for m in range(12)]
+#
+#
+# year = 2021
+# res = save(year)
+# print(res)
+# print(sum(res))
 
-def save(y):
-    d_in_m = [0] + [monthrange(y, m)[1] for m in range(1, 13)]
-    cum_d = list(accumulate(d_in_m))
-    daily = range(1, 367 if isleap(y) else 366)
-    return [sum(daily[cum_d[m]: cum_d[m + 1]]) for m in range(12)]
+mp2_object = \
+    dict(January=1.00, February=0.92, March=0.83, April=0.75, May=0.67, June=0.58, July=0.50, August=0.42,
+         September=0.33, October=0.25, November=0.17, December=0.08)
 
+monthly_contri = 10000.00
+dividend = 0.07
+v = []
+for key, value in mp2_object.items():
+    x = value * monthly_contri
+    y = round(x * dividend, 2)
+    v.append(y)
 
-year = 2021
-res = save(year)
-print(res)
-print(sum(res))
+print(sum(v)*5)
+
