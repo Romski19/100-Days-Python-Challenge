@@ -93,17 +93,52 @@ from itertools import accumulate
 # print(res)
 # print(sum(res))
 
-mp2_object = \
-    dict(January=1.00, February=0.92, March=0.83, April=0.75, May=0.67, June=0.58, July=0.50, August=0.42,
-         September=0.33, October=0.25, November=0.17, December=0.08)
+# mp2_object = \
+#     dict(January=1.00, February=0.92, March=0.83, April=0.75, May=0.67, June=0.58, July=0.50, August=0.42,
+#          September=0.33, October=0.25, November=0.17, December=0.08)
+#
+# monthly_contri = 50000.00
+# dividend = 0.07
+# v = []
+# for key, value in mp2_object.items():
+#     x = value * monthly_contri
+#     y = round(x * dividend, 2)
+#     v.append(y)
+#
+# print(sum(v))
+import requests
+from datetime import datetime, timedelta
 
-monthly_contri = 10000.00
-dividend = 0.07
-v = []
-for key, value in mp2_object.items():
-    x = value * monthly_contri
-    y = round(x * dividend, 2)
-    v.append(y)
 
-print(sum(v)*5)
+TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com/v2/search"
+TEQUILA_API_KEY = "0B-Jdrq704EiKJIYOC6KLoa6aaIrQFaR"
+
+header = {
+    "apikey": TEQUILA_API_KEY,
+}
+date_tom = datetime.now() + timedelta(days=1)
+date_42days = datetime.now() + timedelta(days=(6 * 30))
+
+parameters = {
+    "fly_from": "BKK",
+    "fly_to": "BER",
+    "date_from": date_tom.strftime("%d/%m/%Y"),
+    "date_to": date_42days.strftime("%d/%m/%Y"),
+    "curr": "USD",
+    "nights_in_dst_from": 3,
+    "nights_in_dst_to": 28,
+    "flight_type": "round",
+    "one_for_city": 1,
+}
+
+response = requests.get(url=TEQUILA_ENDPOINT, params=parameters, headers=header)
+number = 0
+data_now = response.json()["data"]
+for x in data_now:
+    number +=1
+    # print(x["cityCodeTo"])
+    # print(x["price"])
+    print(f"{number} : {x['price']}")
+    print(x["route"][0]["local_departure"].split("T")[0])
+    print(x["route"][1]["local_departure"].split("T")[0])
 

@@ -10,13 +10,11 @@ class DataManager:
         self.headers = {"Authorization": "Bearer qwertYaSdF"}
 
     def get_destination_data(self):
-
         response = requests.get(url=SHEETY_PRICES_ENDPOINT, headers=self.headers)
         data = response.json()
         self.destination_data = data["prices"]
 
         return self.destination_data
-
 
     def update_destination_codes(self):
         for city in self.destination_data:
