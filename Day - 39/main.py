@@ -39,3 +39,4 @@ for city_name in sheet_data:
     else:
         print(f"Lowest updated price from LONDON-STN to {city}-{city_code} price: ${price} "
               f"{flight_date} to {return_date}")
+
