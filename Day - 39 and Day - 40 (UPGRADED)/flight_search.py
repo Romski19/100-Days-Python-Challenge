@@ -5,7 +5,7 @@ from flight_data import FlightData
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com/locations/query"
 TEQUILA_ENDPOINT_SEARCH = "https://tequila-api.kiwi.com/v2/search"
 TEQUILA_API_KEY = "0B-Jdrq704EiKJIYOC6KLoa6aaIrQFaR"
-departure_airport_code = "LON"
+departure_airport_code = "BKK"
 
 
 class FlightSearch:
