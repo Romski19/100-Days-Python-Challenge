@@ -8,7 +8,13 @@ flight_search = FlightSearch()
 data_manager = DataManager()
 notify_price = NotificationManager()
 sheet_data = data_manager.get_destination_data()
-# print(sheet_data["prices"])
+
+print("Welcome to Romeo's Flight Club")
+first_name = input("What is your first name? ").title()
+last_name = input("What is your last name? ").title()
+email = input("What is your email?: ").lower()
+
+data_manager.input_users(first_name, last_name, email)
 
 if sheet_data[0]["iataCode"] == "":
     from flight_search import FlightSearch
@@ -33,10 +39,16 @@ for city_name in sheet_data:
                   f"Only ${details.price} to fly from "
                   f"London-STN to {details.city_name}-{details.city_code}, from "
                   f"{details.flight_date} to {details.return_date}")
-            notify_price.notify_low_price(details.city_name, details.city_code, details.price, details.flight_date,
-                                          details.return_date)
-
+            messages = notify_price.notify_low_price(details.city_name, details.city_code, details.price, details.flight_date,details.return_date)
+            email_data = data_manager.get_users()
+            for user_emails in email_data:
+                emails = user_emails["email"]
+                notify_price.email_notification(emails, messages)
         else:
             print(
                 f"Lowest updated price from LONDON-STN to {details.city_name}-{details.city_code} price: ${details.price} "
                 f"{details.flight_date} to {details.return_date}")
+
+
+
+
