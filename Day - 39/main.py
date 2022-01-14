@@ -6,7 +6,6 @@ from notification_manager import NotificationManager
 
 flight_search = FlightSearch()
 data_manager = DataManager()
-flight_data = FlightData()
 notify_price = NotificationManager()
 sheet_data = data_manager.get_destination_data()
 # print(sheet_data["prices"])
@@ -22,21 +21,22 @@ if sheet_data[0]["iataCode"] == "":
     data_manager.destination_data = sheet_data
     data_manager.update_destination_codes()
 
-
 for city_name in sheet_data:
     cities = city_name['city']
-    flight_search.get_destination_code(cities)
-    city, city_code, price, flight_date, return_date = flight_data.get_the_price(flight_search.get_destination_code(cities))
-    data_sheet_price = sheet_data[0]["lowestPrice"]
-    notify_price.notify_low_price(city, city_code, price, flight_date, return_date,data_sheet_price)
 
-    if sheet_data[0]["lowestPrice"] > price:
-        print(f"Low Price Alert! "
-              f"Only ${price} to fly from " 
-              f"London-STN to {city}-{city_code}, from "
-              f"{flight_date} to {return_date}")
-
+    details = flight_search.get_the_price((flight_search.get_destination_code(cities)))
+    if details is None:
+        pass
     else:
-        print(f"Lowest updated price from LONDON-STN to {city}-{city_code} price: ${price} "
-              f"{flight_date} to {return_date}")
+        if sheet_data[0]["lowestPrice"] > details.price:
+            print(f"Low Price Alert! "
+                  f"Only ${details.price} to fly from "
+                  f"London-STN to {details.city_name}-{details.city_code}, from "
+                  f"{details.flight_date} to {details.return_date}")
+            notify_price.notify_low_price(details.city_name, details.city_code, details.price, details.flight_date,
+                                          details.return_date)
 
+        else:
+            print(
+                f"Lowest updated price from LONDON-STN to {details.city_name}-{details.city_code} price: ${details.price} "
+                f"{details.flight_date} to {details.return_date}")
