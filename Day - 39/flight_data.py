@@ -38,4 +38,4 @@ class FlightData:
             city_code = data_destination["cityCodeTo"]
             flight_date = data_destination["route"][0]["local_departure"].split("T")[0]
             return_date = data_destination["route"][1]["local_departure"].split("T")[0]
-            return city_name, city_code,prices, flight_date, return_date
+            return city_name, city_code, prices, flight_date, return_date

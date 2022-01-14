@@ -2,7 +2,7 @@ import requests
 from twilio.rest import Client
 
 account_sid = "AC0336a39ea9bfaa3021ee23039d77cf50"
-auth_token = "7fea9e33da8a4ce86181711592992b85"
+auth_token = "91df1ebf3b9457b62178775cbaef77f7"
 
 
 class NotificationManager:
