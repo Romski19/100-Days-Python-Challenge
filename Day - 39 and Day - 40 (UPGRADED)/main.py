@@ -1,4 +1,4 @@
-# 4. Pass the data back to the main.py file, so that you can print the data from main.py
+
 from data_manager import DataManager
 from flight_search import FlightSearch
 from flight_data import FlightData
@@ -9,12 +9,12 @@ data_manager = DataManager()
 notify_price = NotificationManager()
 sheet_data = data_manager.get_destination_data()
 
-# print("Welcome to Romeo's Flight Club")
-# first_name = input("What is your first name? ").title()
-# last_name = input("What is your last name? ").title()
-# email = input("What is your email?: ").lower()
-#
-# data_manager.input_users(first_name, last_name, email)
+print("Welcome to Romeo's Flight Club")
+first_name = input("What is your first name? ").title()
+last_name = input("What is your last name? ").title()
+email = input("What is your email?: ").lower()
+
+data_manager.input_users(first_name, last_name, email)
 
 if sheet_data[0]["iataCode"] == "":
     from flight_search import FlightSearch
