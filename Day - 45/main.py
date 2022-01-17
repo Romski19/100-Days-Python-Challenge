@@ -15,7 +15,16 @@ soup = BeautifulSoup(contents, "html.parser")
 # for ps in soup.find_all('p'):
 #     print(ps.get_text())
 
+# for ps in soup.find_all('a'):
+#     print(ps.getText())
+#     print(ps.get('href'))
 
-for ps in soup.find_all('a'):
-    print(ps.get_text())
-    print(ps.get('href'))
+# Specific Search
+# print(soup.find(name="h1",id="name"))
+#  REMEMBER to PUT _ after class(since its an attib)
+# print(soup.find(name="h3", class_="heading"))
+
+# you can also use - select
+
+# form_tag = soup.select('p')
+# max_lenght = form_tag.get("maxlength")
