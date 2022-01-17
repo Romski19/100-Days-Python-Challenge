@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.container {
+  background-color: #0A1931;
+  white-space: nowrap;
+  padding-top: 250px;
+  padding-bottom: 2px;
+  position: relative;
+
+}
+
+#cv_img {
+  margin-top: 0;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.side_icon {
+  width: 120px;
+  height: 120px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #185ADB
+  
+}
+p {
+  margin-top: 0;
+  color: #FFC947;
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none !important;
+}
+
+.bottom_img {
+  width: 400px;
+  height: 250px;
+  margin-top: 40px;
+}
+
+.python_icon {
+  position: absolute;
+  right: 200px;
+  bottom: 200px;
+  transform: translateX(-50%);
+}
+.media_edit {
+  position: absolute;
+  left:400px;
+  
+  
+}
