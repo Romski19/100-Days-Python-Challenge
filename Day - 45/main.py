@@ -1,30 +1,31 @@
-from os import link
+import requests
 from bs4 import BeautifulSoup
-# import lxml
 
-with open("Day - 45/website.html","r", encoding="UTF-8") as site:
-    contents = site.read()
 
-soup = BeautifulSoup(contents, "html.parser")
-# print(soup.prettify())
-# print(soup.a)
+response = requests.get("https://news.ycombinator.com/")
+news = response.text
 
-# Find All Sample
+soup = BeautifulSoup(news, "html.parser")
+# x = 0
+# for headlines in soup.find_all(name="a", class_="titlelink"):
+#     x += 1
+#     print(f"{x}", headlines.getText())
 
-# print(soup.find_all('p'))
-# for ps in soup.find_all('p'):
-#     print(ps.get_text())
 
-# for ps in soup.find_all('a'):
-#     print(ps.getText())
-#     print(ps.get('href'))
+news_titles = [text.getText() for text in soup.find_all(name="a", class_="titlelink")]    
+upvote_score = [int(scores.get_text().split()[0]) for scores in soup.find_all(name="span", class_="score")]
 
-# Specific Search
-# print(soup.find(name="h1",id="name"))
-#  REMEMBER to PUT _ after class(since its an attib)
-# print(soup.find(name="h3", class_="heading"))
 
-# you can also use - select
+# print(news_titles)
+print(upvote_score)
 
-# form_tag = soup.select('p')
-# max_lenght = form_tag.get("maxlength")
+# getting the highest score
+highest = max(upvote_score)
+# getting the index of the highest upvote score
+index_of_highest_score = upvote_score.index(highest)
+# getting the title of the highest upvote score
+title_of_highest_upvote = news_titles[index_of_highest_score]
+print(title_of_highest_upvote)
+
+
+# ETHICS of WEB SCRAPPING - Check the url/robots.txt
