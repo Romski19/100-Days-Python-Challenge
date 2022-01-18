@@ -6,11 +6,6 @@ response = requests.get("https://news.ycombinator.com/")
 news = response.text
 
 soup = BeautifulSoup(news, "html.parser")
-# x = 0
-# for headlines in soup.find_all(name="a", class_="titlelink"):
-#     x += 1
-#     print(f"{x}", headlines.getText())
-
 
 news_titles = [text.getText() for text in soup.find_all(name="a", class_="titlelink")]    
 upvote_score = [int(scores.get_text().split()[0]) for scores in soup.find_all(name="span", class_="score")]
