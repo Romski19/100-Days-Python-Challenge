@@ -7,6 +7,7 @@ news = response.text
 
 soup = BeautifulSoup(news, "html.parser")
 
+
 news_titles = [text.getText() for text in soup.find_all(name="a", class_="titlelink")]    
 upvote_score = [int(scores.get_text().split()[0]) for scores in soup.find_all(name="span", class_="score")]
 
