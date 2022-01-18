@@ -1,8 +1,9 @@
+import os
 import requests
 from datetime import datetime
 
-APP_ID = "50f6ec3e"
-API_KEY = "1a9746e19e6acc15be7b364bf00c2e2d"
+APP_ID = os.environ['TRACK_APP_ID']
+API_KEY = os.environ['TRACK_API']
 
 WEIGHT = 65
 HEIGHT = 165
@@ -43,9 +44,6 @@ sheet_inputs = {
         'calories': calories_exercise,
     },
 }
-# bearer_headers = {
-#     "Authorization": "Bearer qwertyasdfgSaSawqe",
-# }
 
 #
 
@@ -59,15 +57,20 @@ sheet_endpoint = "https://api.sheety.co/7f278ebeba209420cb173fc3d1db2523/myWorko
 # sheety_response = requests.post(url=sheety_endpoint,
 #                                 json=sheety_parameters)
 
+AUTH_BEARER = os.environ['SHEETY_BEERER']
 
 bearer_headers = {
-    "Authorization": "Basic cm9tc2tpMTk6QXNvbWFyQDEyMTkxNg==",
+    "Authorization": AUTH_BEARER,
     "Content-Type": "application/json",
 }
+
+AUTH_S = os.environ['SHEETY_AUTH']
+AUTH_P = os.environ['SHEETY_PASS']
+
 sheet_response = requests.post(
     sheet_endpoint,
     json=sheet_inputs,
-    auth=('romski19', "Asomar@121916"),
+    auth=(AUTH_S, AUTH_P),
     headers=bearer_headers,
 )
 

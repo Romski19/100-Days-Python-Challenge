@@ -1,9 +1,11 @@
 import requests
 from datetime import datetime
+import os
 
-USERNAME = "romski07"
+
+USERNAME = os.environ['PX_USERNAME']
 TOKEN = "da52das64adw6dadaw"
-GRAPH_ID = "romeyaw19"
+GRAPH_ID = os.environ['PIX_ID']
 
 pixela_endpoint = "https://pixe.la/v1/users"
 

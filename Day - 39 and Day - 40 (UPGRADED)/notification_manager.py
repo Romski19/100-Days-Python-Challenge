@@ -1,11 +1,15 @@
 import requests
 import smtplib
 from twilio.rest import Client
+import os
 
-account_sid = "AC0336a39ea9bfaa3021ee23039d77cf50"
+account_sid = os.environ['TW_SID']
 auth_token = "7a3b82aeeae0f44032963e711b53e0d3"
-my_email = "testingtestromeo@gmail.com"
-password = "Rabanos@121916"
+
+my_email = os.environ['GMAIL_ACT']
+password = os.environ['GMAIL_PASS']
+
+used_number = os.environ['USER_NUMBER']
 
 
 class NotificationManager:
@@ -22,7 +26,7 @@ class NotificationManager:
                  f"Bangkok-BKK to {city}-{city_code}, from "
                  f"{flight_date} to {return_date}",
             from_='+14439513240',
-            to='+66800785607',
+            to= used_number,
         )
 
     def email_notification(self, e_mail, city, city_code, price, flight_date, return_date):

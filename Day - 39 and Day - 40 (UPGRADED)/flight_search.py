@@ -1,10 +1,12 @@
 import requests
 from datetime import datetime, timedelta
 from flight_data import FlightData
+import os
 
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com/locations/query"
 TEQUILA_ENDPOINT_SEARCH = "https://tequila-api.kiwi.com/v2/search"
-TEQUILA_API_KEY = "0B-Jdrq704EiKJIYOC6KLoa6aaIrQFaR"
+
+TEQUILA_API_KEY = os.environ['TQ_API']
 departure_airport_code = "BKK"
 
 

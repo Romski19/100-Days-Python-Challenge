@@ -1,15 +1,15 @@
 import requests
 import itertools
-# import os
+import os
 from twilio.rest import Client
 
-account_sid = "AC0336a39ea9bfaa3021ee23039d77cf50"
+account_sid = os.environ['TW_SID']
 auth_token = "7fea9e33da8a4ce86181711592992b85"
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-STOCK_APIKEY = "UYYZ1F2ZXCVYEZ9Q"
-NEWS_APIKEY = "4bb94d38edb041bfab6258a8ab398da3"
+STOCK_APIKEY = os.environ['STOCK_API']
+NEWS_APIKEY = os.environ['NEW_API']
 
 stock_parameters = {
     "function": "TIME_SERIES_DAILY",
