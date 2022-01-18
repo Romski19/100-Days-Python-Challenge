@@ -77,9 +77,14 @@
 # print(monthly_totals)
 # print(sum(monthly_totals))
 
-
+import os
 from calendar import monthrange, isleap
 from itertools import accumulate
+
+db_pass = os.environ["DB_PASS"]
+
+print(db_pass)
+
 
 # def save(y):
 #     d_in_m = [0] + [monthrange(y, m)[1] for m in range(1, 13)]
@@ -106,39 +111,39 @@ from itertools import accumulate
 #     v.append(y)
 #
 # print(sum(v))
-import requests
-from datetime import datetime, timedelta
+# import requests
+# from datetime import datetime, timedelta
 
 
-TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com/v2/search"
-TEQUILA_API_KEY = "0B-Jdrq704EiKJIYOC6KLoa6aaIrQFaR"
+# TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com/v2/search"
+# TEQUILA_API_KEY = "0B-Jdrq704EiKJIYOC6KLoa6aaIrQFaR"
 
-header = {
-    "apikey": TEQUILA_API_KEY,
-}
-date_tom = datetime.now() + timedelta(days=1)
-date_42days = datetime.now() + timedelta(days=(6 * 30))
+# header = {
+#     "apikey": TEQUILA_API_KEY,
+# }
+# date_tom = datetime.now() + timedelta(days=1)
+# date_42days = datetime.now() + timedelta(days=(6 * 30))
 
-parameters = {
-    "fly_from": "BKK",
-    "fly_to": "BER",
-    "date_from": date_tom.strftime("%d/%m/%Y"),
-    "date_to": date_42days.strftime("%d/%m/%Y"),
-    "curr": "USD",
-    "nights_in_dst_from": 3,
-    "nights_in_dst_to": 28,
-    "flight_type": "round",
-    "one_for_city": 1,
-}
+# parameters = {
+#     "fly_from": "BKK",
+#     "fly_to": "BER",
+#     "date_from": date_tom.strftime("%d/%m/%Y"),
+#     "date_to": date_42days.strftime("%d/%m/%Y"),
+#     "curr": "USD",
+#     "nights_in_dst_from": 3,
+#     "nights_in_dst_to": 28,
+#     "flight_type": "round",
+#     "one_for_city": 1,
+# }
 
-response = requests.get(url=TEQUILA_ENDPOINT, params=parameters, headers=header)
-number = 0
-data_now = response.json()["data"]
-for x in data_now:
-    number +=1
-    # print(x["cityCodeTo"])
-    # print(x["price"])
-    print(f"{number} : {x['price']}")
-    print(x["route"][0]["local_departure"].split("T")[0])
-    print(x["route"][1]["local_departure"].split("T")[0])
+# response = requests.get(url=TEQUILA_ENDPOINT, params=parameters, headers=header)
+# number = 0
+# data_now = response.json()["data"]
+# for x in data_now:
+#     number +=1
+#     # print(x["cityCodeTo"])
+#     # print(x["price"])
+#     print(f"{number} : {x['price']}")
+#     print(x["route"][0]["local_departure"].split("T")[0])
+#     print(x["route"][1]["local_departure"].split("T")[0])
 
