@@ -1,3 +1,4 @@
+from hashlib import new
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 
@@ -7,9 +8,17 @@ driver = webdriver.Chrome(service=service)
 
 driver.get('https://www.gmanetwork.com/news/')
 just_in = driver.find_elements_by_class_name("just-in-story")
+news_time = driver.find_elements_by_class_name("time")
 
-for j_news in just_in:
-    print(j_news.text)
+news = {}
+
+for n in range(len(just_in)):
+    news[n] = {
+        "time": news_time[n].text,
+        "news": just_in[n].text,
+    }
+
+print(news)
 
 # driver.close()
 driver.quit()
