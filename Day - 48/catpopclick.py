@@ -9,7 +9,7 @@ driver = webdriver.Chrome(service=service)
 
 driver.get("https://popcat.click/")
 btn = driver.find_element_by_class_name("cat-img ")
-x = 5000
+x = 50000
 
 while x != 0:
     btn.click()
