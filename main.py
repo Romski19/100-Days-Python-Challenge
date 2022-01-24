@@ -77,13 +77,13 @@
 # print(monthly_totals)
 # print(sum(monthly_totals))
 
-import os
-from calendar import monthrange, isleap
-from itertools import accumulate
+# import os
+# from calendar import monthrange, isleap
+# from itertools import accumulate
 
-db_pass = os.environ["DB_PASS"]
+# db_pass = os.environ["DB_PASS"]
 
-print(db_pass)
+# print(db_pass)
 
 
 # def save(y):
@@ -146,4 +146,30 @@ print(db_pass)
 #     print(f"{number} : {x['price']}")
 #     print(x["route"][0]["local_departure"].split("T")[0])
 #     print(x["route"][1]["local_departure"].split("T")[0])
+
+import requests
+
+response = requests.get("https://catfact.ninja/fact")
+cat = response.json()
+print(cat.get('fact'))
+
+#  Chalenge my self lotto RUMBLE
+my_number = 589763
+list_num = list(map(int,str(my_number)))    
+winning_numbers = [819763,556879,638597,124578,668932]
+won = []
+winning_num = []
+
+for x in range(len(winning_numbers)):
+    list_win = list(map(int,str(winning_numbers[x])))
+    num = len(list_win)
+    for v in range(num):
+        if list_num[v] in list_win:
+           won.append(winning_numbers[x])        
+    winning_num.append(won.count(winning_numbers[x]))
+
+
+if 6 in winning_num:
+    get_index = winning_num.index(6)
+    print(f"the winning number if you rumble {my_number} is : {winning_numbers[get_index]}")
 
