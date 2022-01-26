@@ -11,10 +11,5 @@ service = ChromeService(executable_path=chrome_driver_path)
 driver = webdriver.Chrome(service=service)
 driver.implicitly_wait(60)
 
-driver.get('https://www.facebook.com/')
+driver.get('https://twitter.com/i/flow/login')
 
-username = driver.find_element(By.XPATH, '//*[@id="email"]')
-username.send_keys("")
-password = driver.find_element(By.XPATH, "//*[@id='pass']")
-password.send_keys("")
-password.send_keys(Keys.ENTER)
